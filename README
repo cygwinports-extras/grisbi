@@ -1,0 +1,124 @@
+grisbi
+------------------------------------------
+Grisbi is a personnal accounting application for Linux, written with
+Gtk and released under the GPL licence.
+
+Grisbi can handle multiple accounts, currencies and users. It supports
+third parties, expenditure and receipt categories, budgetary lines,
+financial years and other informations that also make Grisbi suited
+for associations (except those that require double entry accounting).
+
+Runtime requirements:
+  cygwin-1.5.19-2
+  gtk2-x11-runtime-2.6.10-1
+  libofx2-0.8.0-1
+  libxml2-2.6.22-1
+
+Build requirements:
+(besides corresponding -devel packages)
+  cygwin-1.5.18-1
+  autoconf2.5-2.59-3
+  automake1.9-1.9.6-1
+  binutils-20050610-1
+  gawk-3.1.5-1
+  gcc-core-3.4.4-1
+  make-3.80-1
+  pkgconfig-0.17.2-2
+  sed-4.1.4-1
+
+Canonical website:
+  http://www.grisbi.org/
+
+Canonical download:
+  http://prdownloads.sourceforge.net/grisbi/
+
+-------------------------------------------
+
+Build instructions:
+  unpack grisbi-0.5.8-X-src.tar.bz2
+    if you use setup to install this src package, it will be
+	 unpacked under /usr/src automatically
+  cd /usr/src
+  ./grisbi-0.5.8-X.sh all
+
+This will create:
+  /usr/src/grisbi-0.5.8-X-src.tar.bz2
+  /usr/src/grisbi-0.5.8-X.tar.bz2
+
+-------------------------------------------
+
+Files included in the binary package:
+
+  /usr/bin/grisbi.exe
+  /usr/share/applications/grisbi.desktop
+  /usr/share/doc/Cygwin/grisbi-0.5.8.README
+  /usr/share/doc/grisbi-0.5.8/ABOUT-NLS
+  /usr/share/doc/grisbi-0.5.8/AUTHORS
+  /usr/share/doc/grisbi-0.5.8/ChangeLog
+  /usr/share/doc/grisbi-0.5.8/COPYING
+  /usr/share/doc/grisbi-0.5.8/INSTALL
+  /usr/share/doc/grisbi-0.5.8/NEWS
+  /usr/share/doc/grisbi-0.5.8/README
+  /usr/share/gnome/help/grisbi/C/contents_motif.gif
+  /usr/share/gnome/help/grisbi/C/grisbi-manuel.html
+  /usr/share/gnome/help/grisbi/C/next_motif.gif
+  /usr/share/gnome/help/grisbi/C/previous_motif.gif
+  /usr/share/gnome/help/grisbi/C/quickstart.html
+  /usr/share/gnome/help/grisbi/C/topic.dat
+  /usr/share/gnome/help/grisbi/C/translation.html
+  /usr/share/gnome/help/grisbi/de/contents_motif.gif
+  /usr/share/gnome/help/grisbi/de/grisbi-manuel.html
+  /usr/share/gnome/help/grisbi/de/next_motif.gif
+  /usr/share/gnome/help/grisbi/de/previous_motif.gif
+  /usr/share/gnome/help/grisbi/de/quickstart.html
+  /usr/share/gnome/help/grisbi/de/topic.dat
+  /usr/share/gnome/help/grisbi/de/translation.html
+  /usr/share/gnome/help/grisbi/fr/contents_motif.gif
+  /usr/share/gnome/help/grisbi/fr/grisbi-manuel.html
+  /usr/share/gnome/help/grisbi/fr/next_motif.gif
+  /usr/share/gnome/help/grisbi/fr/previous_motif.gif
+  /usr/share/gnome/help/grisbi/fr/quickstart.html
+  /usr/share/gnome/help/grisbi/fr/topic.dat
+  /usr/share/gnome/help/grisbi/fr/translation.html
+  /usr/share/locale/cs/LC_MESSAGES/grisbi.mo
+  /usr/share/locale/de/LC_MESSAGES/grisbi.mo
+  /usr/share/locale/es/LC_MESSAGES/grisbi.mo
+  /usr/share/locale/fr/LC_MESSAGES/grisbi.mo
+  /usr/share/locale/it/LC_MESSAGES/grisbi.mo
+  /usr/share/locale/nl/LC_MESSAGES/grisbi.mo
+  /usr/share/locale/pl/LC_MESSAGES/grisbi.mo
+  /usr/share/locale/pt_BR/LC_MESSAGES/grisbi.mo
+  /usr/share/locale/ro/LC_MESSAGES/grisbi.mo
+  /usr/share/locale/ru/LC_MESSAGES/grisbi.mo
+  /usr/share/locale/zh_CN/LC_MESSAGES/grisbi.mo
+  /usr/share/man/man1/grisbi.1.gz
+  /usr/share/mime-info/grisbi.keys
+  /usr/share/mime-info/grisbi.mime
+  /usr/share/pixmaps/grisbi/addresses.png
+  /usr/share/pixmaps/grisbi/banks.png
+  /usr/share/pixmaps/grisbi/currencies.png
+  /usr/share/pixmaps/grisbi/dollar.gif
+  /usr/share/pixmaps/grisbi/euro.gif
+  /usr/share/pixmaps/grisbi/exec.png
+  /usr/share/pixmaps/grisbi/files.png
+  /usr/share/pixmaps/grisbi/financial-years.png
+  /usr/share/pixmaps/grisbi/fonts.png
+  /usr/share/pixmaps/grisbi/form.png
+  /usr/share/pixmaps/grisbi/grisbi-logo.png
+  /usr/share/pixmaps/grisbi/grisbi.png
+  /usr/share/pixmaps/grisbi/import.png
+  /usr/share/pixmaps/grisbi/payment-methods.png
+  /usr/share/pixmaps/grisbi/reconciliation.png
+  /usr/share/pixmaps/grisbi/transaction-list.png
+  /usr/share/pixmaps/grisbi/warnings.png
+
+------------------
+
+Port Notes:
+
+----- version 0.5.8-1 -----
+Initial release for Cygwin.
+
+
+Cygwin port maintained by:
+http://cygwinports.dotsrc.org/

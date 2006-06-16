@@ -1,0 +1,10 @@
+category: Gnome
+requires: cygwin gtk2-x11-runtime libofx2 libxml2 xorg-x11-base
+sdesc: "GTK personal accounting manager"
+ldesc: "Grisbi is a personnal accounting application for Linux, written
+with Gtk and released under the GPL licence.
+
+Grisbi can handle multiple accounts, currencies and users. It supports
+third parties, expenditure and receipt categories, budgetary lines,
+financial years and other informations that also make Grisbi suited
+for associations (except those that require double entry accounting)."
