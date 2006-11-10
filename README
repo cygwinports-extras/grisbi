@@ -9,22 +9,24 @@ financial years and other informations that also make Grisbi suited
 for associations (except those that require double entry accounting).
 
 Runtime requirements:
-  cygwin-1.5.19-2
-  gtk2-x11-runtime-2.6.10-1
-  libofx2-0.8.0-1
-  libxml2-2.6.22-1
+  cygwin-1.5.21-2
+  gtk2-x11-2.10.6-1
+  libofx3-0.8.2-1
+  libxml2-2.6.26-1
 
 Build requirements:
 (besides corresponding -devel packages)
-  cygwin-1.5.18-1
-  autoconf2.5-2.59-3
-  automake1.9-1.9.6-1
-  binutils-20050610-1
-  gawk-3.1.5-1
+  cygwin-1.5.21-2
+  autoconf2.5-2.60-1
+  automake1.4-1.4p6-1
+  binutils-20050817-1
+  cygport-0.2.6-1
+  gawk-3.1.5-2
   gcc-core-3.4.4-1
-  make-3.80-1
-  pkgconfig-0.17.2-2
-  sed-4.1.4-1
+  gettext-devel-0.15-1
+  make-3.81-1
+  pkg-config-0.20-1
+  sed-4.1.5-1
 
 Canonical website:
   http://www.grisbi.org/
@@ -35,15 +37,15 @@ Canonical download:
 -------------------------------------------
 
 Build instructions:
-  unpack grisbi-0.5.8-X-src.tar.bz2
+  unpack grisbi-0.5.9-X-src.tar.bz2
     if you use setup to install this src package, it will be
 	 unpacked under /usr/src automatically
   cd /usr/src
-  ./grisbi-0.5.8-X.sh all
+  cygport ./grisbi-0.5.9-X.cygport all
 
 This will create:
-  /usr/src/grisbi-0.5.8-X-src.tar.bz2
-  /usr/src/grisbi-0.5.8-X.tar.bz2
+  /usr/src/grisbi-0.5.9-X-src.tar.bz2
+  /usr/src/grisbi-0.5.9-X.tar.bz2
 
 -------------------------------------------
 
@@ -51,14 +53,14 @@ Files included in the binary package:
 
   /usr/bin/grisbi.exe
   /usr/share/applications/grisbi.desktop
-  /usr/share/doc/Cygwin/grisbi-0.5.8.README
-  /usr/share/doc/grisbi-0.5.8/ABOUT-NLS
-  /usr/share/doc/grisbi-0.5.8/AUTHORS
-  /usr/share/doc/grisbi-0.5.8/ChangeLog
-  /usr/share/doc/grisbi-0.5.8/COPYING
-  /usr/share/doc/grisbi-0.5.8/INSTALL
-  /usr/share/doc/grisbi-0.5.8/NEWS
-  /usr/share/doc/grisbi-0.5.8/README
+  /usr/share/doc/Cygwin/grisbi-0.5.9.README
+  /usr/share/doc/grisbi-0.5.9/ABOUT-NLS
+  /usr/share/doc/grisbi-0.5.9/AUTHORS
+  /usr/share/doc/grisbi-0.5.9/COPYING
+  /usr/share/doc/grisbi-0.5.9/ChangeLog
+  /usr/share/doc/grisbi-0.5.9/INSTALL
+  /usr/share/doc/grisbi-0.5.9/NEWS
+  /usr/share/doc/grisbi-0.5.9/README
   /usr/share/gnome/help/grisbi/C/contents_motif.gif
   /usr/share/gnome/help/grisbi/C/grisbi-manuel.html
   /usr/share/gnome/help/grisbi/C/next_motif.gif
@@ -84,6 +86,7 @@ Files included in the binary package:
   /usr/share/locale/de/LC_MESSAGES/grisbi.mo
   /usr/share/locale/es/LC_MESSAGES/grisbi.mo
   /usr/share/locale/fr/LC_MESSAGES/grisbi.mo
+  /usr/share/locale/he/LC_MESSAGES/grisbi.mo
   /usr/share/locale/it/LC_MESSAGES/grisbi.mo
   /usr/share/locale/nl/LC_MESSAGES/grisbi.mo
   /usr/share/locale/pl/LC_MESSAGES/grisbi.mo
@@ -115,6 +118,9 @@ Files included in the binary package:
 ------------------
 
 Port Notes:
+
+----- version 0.5.9-1 -----
+Version bump.
 
 ----- version 0.5.8-1 -----
 Initial release for Cygwin.
