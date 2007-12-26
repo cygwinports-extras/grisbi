@@ -1,0 +1,126 @@
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x ltmain.sh -x 'config.*' -x depcomp -x install-sh -x missing -x mkinstalldirs -x autom4te.cache -x '*compile' -x Makefile.in.in -x 'intltool*.in' -x 'xml-i18n-*.in' -x '*.pyc' -x '*.mo' -x '*.gmo' -x ABOUT-NLS -x Makevars.template -x COPYING -x INSTALL -x '*.orig' -x '*.rej' -x '*~' -x '*.temp' -x texinfo.tex -x ylwrap -x Makefile.in -x makefile.in -x configure -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x omf.make -x xmldocs.make -x intl -x po origsrc/grisbi-0.5.9/ChangeLog src/grisbi-0.5.9/ChangeLog
+--- origsrc/grisbi-0.5.9/ChangeLog	2005-01-08 09:13:58.000000000 -0600
++++ src/grisbi-0.5.9/ChangeLog	2006-11-10 14:31:05.242750000 -0600
+@@ -1,3 +1,8 @@
++2006-11-10  gettextize  <bug-gnu-gettext@gnu.org>
++
++	* Makefile.am (SUBDIRS): Remove intl.
++	(EXTRA_DIST): Add config.rpath.
++
+ 2005-01-08  Alain Portal <dionysos@grisbi.org>
+ 
+ 	* ChangeLog: Update.
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x ltmain.sh -x 'config.*' -x depcomp -x install-sh -x missing -x mkinstalldirs -x autom4te.cache -x '*compile' -x Makefile.in.in -x 'intltool*.in' -x 'xml-i18n-*.in' -x '*.pyc' -x '*.mo' -x '*.gmo' -x ABOUT-NLS -x Makevars.template -x COPYING -x INSTALL -x '*.orig' -x '*.rej' -x '*~' -x '*.temp' -x texinfo.tex -x ylwrap -x Makefile.in -x makefile.in -x configure -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x omf.make -x xmldocs.make -x intl -x po origsrc/grisbi-0.5.9/Makefile.am src/grisbi-0.5.9/Makefile.am
+--- origsrc/grisbi-0.5.9/Makefile.am	2004-04-07 09:24:35.000000000 -0500
++++ src/grisbi-0.5.9/Makefile.am	2006-11-10 14:12:19.876125000 -0600
+@@ -1,6 +1,8 @@
+ ## Process this file with automake to produce Makefile.in
+ 
+-SUBDIRS = macros src po intl pixmaps help
++ACLOCAL_AMFLAGS = -I macros
++
++SUBDIRS = macros src po pixmaps help
+ man_MANS = grisbi.1
+ 
+-EXTRA_DIST = $(man_MANS)
++EXTRA_DIST = config.rpath  $(man_MANS)
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x ltmain.sh -x 'config.*' -x depcomp -x install-sh -x missing -x mkinstalldirs -x autom4te.cache -x '*compile' -x Makefile.in.in -x 'intltool*.in' -x 'xml-i18n-*.in' -x '*.pyc' -x '*.mo' -x '*.gmo' -x ABOUT-NLS -x Makevars.template -x COPYING -x INSTALL -x '*.orig' -x '*.rej' -x '*~' -x '*.temp' -x texinfo.tex -x ylwrap -x Makefile.in -x makefile.in -x configure -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x omf.make -x xmldocs.make -x intl -x po origsrc/grisbi-0.5.9/configure.in src/grisbi-0.5.9/configure.in
+--- origsrc/grisbi-0.5.9/configure.in	2006-06-14 01:30:42.000000000 -0500
++++ src/grisbi-0.5.9/configure.in	2006-11-10 14:30:44.899000000 -0600
+@@ -19,7 +19,7 @@
+ 
+ dnl Check for NLS support.
+ ALL_LINGUAS="cs de es fr he it pl pt_BR nl ro ru zh_CN"
+-AM_GNU_GETTEXT
++AM_GLIB_GNU_GETTEXT
+ AC_CHECK_LIB(intl,main)
+ 
+ dnl Check for libofx
+@@ -34,7 +34,7 @@
+     if test x$noofx != xtrue
+     then
+         AC_CHECK_LIB(ofx, ofx_set_status_cb, OFX_0_7="-DOFX_0_7")
+-        LDFLAGS="${LDFLAGS} -lofx"
++        LIBS="${LIBS} -lofx"
+         CFLAGS="${CFLAGS} $OFX_0_7"
+     else
+         noofx=true
+@@ -51,12 +51,12 @@
+ AC_SUBST(prefix)
+ 
+ PKG_CHECK_MODULES(GRISBI, gtk+-2.0 >= 2.2.0 glib-2.0 libxml-2.0 >= 2.0)
+-LDFLAGS="${LDFLAGS} ${GRISBI_LIBS}"
++LIBS="${LIBS} ${GRISBI_LIBS}"
+ CFLAGS="${CFLAGS} ${GRISBI_CFLAGS}"
+ 
+ 
+ AC_SUBST(CFLAGS)
+-AC_SUBST(LDFLAGS)
++AC_SUBST(LIBS)
+ 
+ dnl ******************************
+ dnl Makefiles
+@@ -68,7 +68,6 @@
+ help/en/Makefile
+ help/fr/Makefile
+ help/de/Makefile
+-intl/Makefile
+ macros/Makefile
+ pixmaps/Makefile
+ po/Makefile.in
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x ltmain.sh -x 'config.*' -x depcomp -x install-sh -x missing -x mkinstalldirs -x autom4te.cache -x '*compile' -x Makefile.in.in -x 'intltool*.in' -x 'xml-i18n-*.in' -x '*.pyc' -x '*.mo' -x '*.gmo' -x ABOUT-NLS -x Makevars.template -x COPYING -x INSTALL -x '*.orig' -x '*.rej' -x '*~' -x '*.temp' -x texinfo.tex -x ylwrap -x Makefile.in -x makefile.in -x configure -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x omf.make -x xmldocs.make -x intl -x po origsrc/grisbi-0.5.9/help/de/Makefile.am src/grisbi-0.5.9/help/de/Makefile.am
+--- origsrc/grisbi-0.5.9/help/de/Makefile.am	2004-10-26 10:45:09.000000000 -0500
++++ src/grisbi-0.5.9/help/de/Makefile.am	2006-11-10 14:11:44.860500000 -0600
+@@ -5,7 +5,7 @@
+ 	quickstart.html \
+ 	translation.html
+ 
+-grisbi_helpdir = $(datadir)/doc/grisbi/help/de
++grisbi_helpdir = $(datadir)/gnome/help/grisbi/de
+ 
+ grisbi_help_DATA = \
+ 	topic.dat     \
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x ltmain.sh -x 'config.*' -x depcomp -x install-sh -x missing -x mkinstalldirs -x autom4te.cache -x '*compile' -x Makefile.in.in -x 'intltool*.in' -x 'xml-i18n-*.in' -x '*.pyc' -x '*.mo' -x '*.gmo' -x ABOUT-NLS -x Makevars.template -x COPYING -x INSTALL -x '*.orig' -x '*.rej' -x '*~' -x '*.temp' -x texinfo.tex -x ylwrap -x Makefile.in -x makefile.in -x configure -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x omf.make -x xmldocs.make -x intl -x po origsrc/grisbi-0.5.9/help/en/Makefile.am src/grisbi-0.5.9/help/en/Makefile.am
+--- origsrc/grisbi-0.5.9/help/en/Makefile.am	2005-04-19 10:33:46.000000000 -0500
++++ src/grisbi-0.5.9/help/en/Makefile.am	2006-11-10 14:11:44.876125000 -0600
+@@ -5,7 +5,7 @@
+ 	quickstart.html \
+ 	translation.html
+ 
+-grisbi_helpdir = $(datadir)/doc/grisbi/help/C
++grisbi_helpdir = $(datadir)/gnome/help/grisbi/C
+ 
+ grisbi_help_DATA = \
+ 	topic.dat     \
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x ltmain.sh -x 'config.*' -x depcomp -x install-sh -x missing -x mkinstalldirs -x autom4te.cache -x '*compile' -x Makefile.in.in -x 'intltool*.in' -x 'xml-i18n-*.in' -x '*.pyc' -x '*.mo' -x '*.gmo' -x ABOUT-NLS -x Makevars.template -x COPYING -x INSTALL -x '*.orig' -x '*.rej' -x '*~' -x '*.temp' -x texinfo.tex -x ylwrap -x Makefile.in -x makefile.in -x configure -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x omf.make -x xmldocs.make -x intl -x po origsrc/grisbi-0.5.9/help/fr/Makefile.am src/grisbi-0.5.9/help/fr/Makefile.am
+--- origsrc/grisbi-0.5.9/help/fr/Makefile.am	2004-05-23 08:18:12.000000000 -0500
++++ src/grisbi-0.5.9/help/fr/Makefile.am	2006-11-10 14:11:44.876125000 -0600
+@@ -5,7 +5,7 @@
+ 	quickstart.html \
+ 	translation.html
+ 
+-grisbi_helpdir = $(datadir)/doc/grisbi/help/fr
++grisbi_helpdir = $(datadir)/gnome/help/grisbi/fr
+ 
+ grisbi_help_DATA = \
+ 	topic.dat     \
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x ltmain.sh -x 'config.*' -x depcomp -x install-sh -x missing -x mkinstalldirs -x autom4te.cache -x '*compile' -x Makefile.in.in -x 'intltool*.in' -x 'xml-i18n-*.in' -x '*.pyc' -x '*.mo' -x '*.gmo' -x ABOUT-NLS -x Makevars.template -x COPYING -x INSTALL -x '*.orig' -x '*.rej' -x '*~' -x '*.temp' -x texinfo.tex -x ylwrap -x Makefile.in -x makefile.in -x configure -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x omf.make -x xmldocs.make -x intl -x po origsrc/grisbi-0.5.9/src/Makefile.am src/grisbi-0.5.9/src/Makefile.am
+--- origsrc/grisbi-0.5.9/src/Makefile.am	2005-10-26 16:39:53.000000000 -0500
++++ src/grisbi-0.5.9/src/Makefile.am	2006-11-10 14:11:44.876125000 -0600
+@@ -1,7 +1,7 @@
+ # Process this file with automake to produce Makefile.in
+ 
+ localedir = $(datadir)/locale
+-INCLUDES = -I$(top_srcdir) -I$(includedir) -I../intl -DLOCALEDIR=\"$(localedir)\" -DPIXMAPS_DIR="\"$(datadir)/pixmaps/grisbi\"" -DLOGO_PATH="\"$(datadir)/pixmaps/grisbi/grisbi-logo.png\"" -DANIM_PATH="\"$(datadir)/pixmaps/grisbi/euro.gif\"" -DHELP_PATH="\"$(datadir)/doc/grisbi/help\"" -Wall 
++INCLUDES = -I$(top_srcdir) -I$(includedir) -I../intl -DLOCALEDIR=\"$(localedir)\" -DPIXMAPS_DIR="\"$(datadir)/pixmaps/grisbi\"" -DLOGO_PATH="\"$(datadir)/pixmaps/grisbi/grisbi-logo.png\"" -DANIM_PATH="\"$(datadir)/pixmaps/grisbi/euro.gif\"" -DHELP_PATH="\"$(datadir)/gnome/help/grisbi\"" -Wall 
+ bin_PROGRAMS = grisbi
+ 
+ sources = 			\
+@@ -134,7 +134,6 @@
+ 	utils_xml.h		\
+ 	search_glist.h
+ 
+-
+ EXTRA_DIST = grisbi.desktop grisbi.keys grisbi.mime $(grisbi_INCLUDES)
+ 
+ mimedir = $(datadir)/mime-info

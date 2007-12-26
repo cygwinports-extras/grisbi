@@ -1,0 +1,17 @@
+inherit gnome2
+
+DESCRIPTION="GNOME personal finance manager"
+HOMEPAGE="http://www.grisbi.org/"
+SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2 
+	mirror://sourceforge/${PN}/${P}.tar.bz2.asc"
+
+DIFF_EXCLUDES="intl po"
+
+src_install() {
+	cd ${B}
+	cyginstall
+
+	rename @GETTEXT_PACKAGE@ ${PN} ${D}/usr/share/locale/*/LC_MESSAGES/*.mo
+
+	make_desktop_entry grisbi Grisbi grisbi/grisbi.png Office "Personal finance manager"
+}

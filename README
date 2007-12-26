@@ -9,30 +9,34 @@ financial years and other informations that also make Grisbi suited
 for associations (except those that require double entry accounting).
 
 Runtime requirements:
-  cygwin-1.5.21-2
-  gtk2-x11-2.10.6-1
-  libofx3-0.8.2-1
-  libxml2-2.6.26-1
+  cygwin-1.5.24-2
+  gdk-pixbuf2-2.12.2-1
+  glib2-2.14.4-1
+  gtk2-x11-2.12.2-1
+  libintl8-0.15-1
+  libofx4-0.9.0-1
+  libxml2-2.6.30-1
+  pango-1.18.3-1
 
 Build requirements:
 (besides corresponding -devel packages)
   cygwin-1.5.21-2
   autoconf2.5-2.60-1
-  automake1.4-1.4p6-1
+  automake1.4-1.4p6-4
   binutils-20050817-1
-  cygport-0.2.6-1
-  gawk-3.1.5-2
-  gcc-core-3.4.4-1
+  cygport-0.3.7-1
+  gawk-3.1.5-4
+  gcc-core-3.4.4-3
   gettext-devel-0.15-1
   make-3.81-1
-  pkg-config-0.20-1
-  sed-4.1.5-1
+  pkg-config-0.21-1
+  sed-4.1.5-2
 
 Canonical website:
   http://www.grisbi.org/
 
 Canonical download:
-  http://prdownloads.sourceforge.net/grisbi/
+  http://downloads.sourceforge.net/grisbi/
 
 -------------------------------------------
 
@@ -118,6 +122,9 @@ Files included in the binary package:
 ------------------
 
 Port Notes:
+
+----- version 0.5.9-2 -----
+Rebuilt for libofx-0.9.
 
 ----- version 0.5.9-1 -----
 Version bump.
